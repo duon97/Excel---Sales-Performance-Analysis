@@ -26,7 +26,8 @@ The goal of this project is to review Company A’s overall business performance
 # IV Visualization & Insight
 
 <img width="1415" height="633" alt="image" src="https://github.com/user-attachments/assets/1dd98dbd-fa49-41ba-99d9-c9ab9b3d2fbf" />
- #### Revenue Source:
+ 
+#### Revenue Source:
 
 Self-production dominates with 69%, while imports contribute 31%.
 
