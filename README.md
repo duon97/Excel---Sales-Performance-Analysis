@@ -50,16 +50,44 @@ Transaction-level sales data, fiscal years 2020/21 and 2021/22. One flat table.
 
 ## II. Design Thinking
 
+## II. Design Thinking
+
 ### Step 1: Empathize
-[insert image]
+
+Users: Executive Management, Sales Manager, Operations Manager at Company A.
+
+| User | What they do | Pain points | Needs |
+|---|---|---|---|
+| Executive Management | Review overall business performance, decide where to invest | Revenue sits in raw transaction data, no single view by production type, province, product | A one-page view of where revenue comes from and where to adjust |
+| Sales Manager | Track revenue by province, category, and manager | Cannot compare managers or provinces without rebuilding reports each time | Filter by year, province, category and compare results quickly |
+| Operations Manager | Balance Self-production and Import | Unclear how much revenue depends on each production type and when it peaks | Monthly trend by production type to plan capacity and import |
 
 ### Step 2: Define POV
-[insert image]
+
+- Executive Management needs a single view of revenue by production type, province, product, and manager, because decisions on investment and focus market depend on knowing where revenue concentrates.
+- Sales Manager needs to compare provinces and managers on the same basis, because the gap between managers may come from product mix or portfolio rather than skill.
+- Operations Manager needs the monthly trend of Self-production and Import, because capacity and import planning depend on seasonality.
+
+How might we...
+- show the Self-production vs Import split at a glance?
+- let users filter by year, province, and category without rebuilding reports?
+- compare managers and provinces fairly?
 
 ### Step 3: Ideate
-[insert image]
+
+| Question | Idea | Chart |
+|---|---|---|
+| Revenue share by production type | Share of total | Pie chart |
+| Monthly trend by production type | Trend over time | Line chart |
+| Province ranking | Size comparison across many categories | Treemap |
+| Product category performance | Compare two production types in a category | Column chart |
+| Manager comparison | Compare two production types per manager | Bar chart |
+| Trend per province | Compact trend for many rows | Sparklines in a table |
+| Filtering | Same filters across every chart | Slicers (Year, Province, Category) |
 
 ### Step 4: Prototype and Review
+
+Built in Excel with Pivot Tables, Pivot Charts, Slicers, and Sparklines. Chart types are matched to each question as in Step 3. Review points: slicers must update every chart at once, fiscal year labels must match the data, and the screenshot should be taken without filters.
 
 Chart types matched to each question: pie for share of total, line for monthly trend, treemap for province ranking, column and bar for category and manager comparison, sparklines for trend per province. Slicers (Year, Province, Category) let users filter every chart.
 
