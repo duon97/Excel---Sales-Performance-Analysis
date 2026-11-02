@@ -64,14 +64,24 @@ Users: Executive Management, Sales Manager, Operations Manager at Company A.
 
 ### Step 2: Define POV
 
-- Executive Management needs a single view of revenue by production type, province, product, and manager, because decisions on investment and focus market depend on knowing where revenue concentrates.
-- Sales Manager needs to compare provinces and managers on the same basis, because the gap between managers may come from product mix or portfolio rather than skill.
-- Operations Manager needs the monthly trend of Self-production and Import, because capacity and import planning depend on seasonality.
+### North Star Metric
 
-How might we...
-- show the Self-production vs Import split at a glance?
-- let users filter by year, province, and category without rebuilding reports?
-- compare managers and provinces fairly?
+North Star: Total Revenue (Doanh số), tracked monthly and by fiscal year.
+
+Why: every user need in Step 2 (investment focus, province and manager comparison, capacity planning) depends on where revenue comes from and whether it holds. Revenue is the only value measure in the dataset.
+
+Input metrics (what moves the North Star)
+
+| Input metric | Question it answers | Source columns |
+|---|---|---|
+| Revenue share by production type | How dependent is the business on Self-production vs Import? | Loại hình Sản xuất, Doanh số |
+| Monthly revenue trend | Is revenue growing, flat, or seasonal? | Thời gian, Doanh số |
+| Revenue by province | Where is revenue concentrated? | Tỉnh/Thành, Doanh số |
+| Revenue by product category | Which products carry each production type? | Mặt hàng, Doanh số |
+| Revenue by manager | How do managers differ, and is it portfolio or performance? | Quản lý, Doanh số |
+| Revenue per customer | Is revenue broad or concentrated in a few customers? | Khách hàng, Doanh số |
+
+Limitation: revenue does not show profitability. A stronger North Star would be Gross Profit, which needs cost data. Until then, read every revenue insight as a hypothesis to validate against margin.
 
 ### Step 3: Ideate
 
