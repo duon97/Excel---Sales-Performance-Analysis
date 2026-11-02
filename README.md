@@ -1,68 +1,119 @@
-# Excel---Sales-Performance-Analysis
-# I. Introduction
 
-# Introduction
+ 
+# Sales Performance Analysis
 
-This dataset provides a comprehensive overview of Company’s business performance in Hồ Chí Minh during the fiscal year 2020/21.  
-It records detailed transaction-level information including time, production type, location, manager, product category, customer, and revenue.  
+Excel dashboard analyzing revenue by production type, region, product category, and manager for Company A, built for Executive Management, Sales, and Operations teams.
 
-# II. The Goal of Creating This Project
-The goal of this project is to review Company A’s overall business performance and propose suitable adjustments.
+### Problem to Be Solved
 
-# III. Dataset description table 
-## Dataset Schema - Business Revenue (Hồ Chí Minh 2020/21)
+Build a decision-making dashboard to:
 
-| Column Name      | Data Type | Description                                      |
-|------------------|-----------|--------------------------------------------------|
-| Thời gian        | DATE      | Ngày giao dịch diễn ra                          |
-| Năm              | STRING    | Năm tài chính (ví dụ: 2020/21)                  |
-| Loại hình Sản xuất | STRING  | Hình thức sản xuất (Tự sản xuất / Nhập khẩu)    |
-| Tỉnh/Thành Nước  | STRING    | Địa phương hoặc quốc gia                        |
-| Quản lý          | STRING    | Người quản lý phụ trách giao dịch               |
-| Mặt hàng         | STRING    | Loại sản phẩm (Nội thất, Đồng phục, Đồ nam…)   |
-| Khách hàng       | STRING    | Tên khách hàng mua sản phẩm                     |
-| Doanh số         | FLOAT     | Giá trị doanh số của giao dịch                  |
+- Compare revenue from Self-production (Tự sản xuất) and Import (Nhập khẩu)
+- Locate revenue concentration by province, product category, and time
+- Compare manager performance
+- Support adjustments to production, market, and product focus
 
-# IV Visualization & Insight
+Key questions
+
+- What share of revenue comes from Self-production vs Import?
+- How has monthly revenue trended for each production type?
+- Which provinces contribute the most revenue?
+- Which product categories are strongest in each production type?
+- How do managers differ in Self-production and Import revenue?
+
+## Table of Contents
+
+- [I. Introduction](#i-introduction)
+- [II. Design Thinking](#ii-design-thinking)
+- [III. Visualization](#iii-visualization)
+- [IV. Insight and Recommendation](#iv-insight-and-recommendation)
+- [Tech Stack](#tech-stack)
+
+## I. Introduction
+
+### 1. Dataset
+
+Transaction-level sales data, fiscal years 2020/21 and 2021/22. One flat table.
+
+#### sales_transactions
+
+| Column | Type | Description |
+|---|---|---|
+| Thời gian | DATE | Transaction date |
+| Năm | STRING | Fiscal year (e.g. 2020/21) |
+| Loại hình Sản xuất | STRING | Tự sản xuất / Nhập khẩu |
+| Tỉnh/Thành | STRING | Province / city |
+| Quản lý | STRING | Manager in charge |
+| Mặt hàng | STRING | Product category (Nội thất, Đồng phục, Đồ nam...) |
+| Khách hàng | STRING | Customer |
+| Doanh số | FLOAT | Transaction revenue |
+
+## II. Design Thinking
+
+### Step 1: Empathize
+[insert image]
+
+### Step 2: Define POV
+[insert image]
+
+### Step 3: Ideate
+[insert image]
+
+### Step 4: Prototype and Review
+
+Chart types matched to each question: pie for share of total, line for monthly trend, treemap for province ranking, column and bar for category and manager comparison, sparklines for trend per province. Slicers (Year, Province, Category) let users filter every chart.
+
+## III. Visualization
+
+### Sales Performance Dashboard
+
+What does revenue look like?
+
+- What share of revenue is Self-production vs Import?
+- How has monthly revenue trended by production type?
+- Which provinces contribute the most revenue?
+- Which production type leads in the selected product category?
+- How do managers compare by production type?
 
 <img width="1415" height="633" alt="image" src="https://github.com/user-attachments/assets/1dd98dbd-fa49-41ba-99d9-c9ab9b3d2fbf" />
- 
-#### Revenue Source:
 
-Self-production dominates with 69%, while imports contribute 31%.
+Insights
 
-Indicates reliance on internal production capacity.
+Screenshot filter: Năm 2020/21 and 2021/22, Tỉnh/Thành Đà Nẵng, Mặt hàng Phụ kiện. Values are read from the charts.
 
-#### Trend Analysis:
+- Self-production is 69% of revenue and Import 31%.
+- Monthly revenue is volatile: Self-production ranges roughly 3.5K to 9K, Import 2K to 5K. Both dip around year-end and peak in similar months, so the pattern looks seasonal. The trend does not show that either type grows faster.
+- Hồ Chí Minh is the largest province, followed by Đà Nẵng, Hà Nội and Cần Thơ. Đồng Nai, Hải Phòng, Bình Phước and Hải Dương are small.
+- In Phụ kiện, Self-production revenue (~115K) is about 2.2 times Import (~52K).
+- Đăng Lâm has the highest Self-production revenue (~47K), ahead of Tùng Dương (~42K) and Tiến Dũng (~40K). Đăng Trà has Import revenue only (~19K). Tùng Dương has almost no Import (~3K).
 
-Both import and self-production revenues are increasing, but self-production grows faster, strengthening its role.
+## IV. Insight and Recommendation
 
-#### Geographic Distribution:
+| Insight | Recommendation |
+|---|---|
+| Self-production is 69% of revenue and Import 31%. | Protect Self-production capacity before peak months. Check margin by production type first, since revenue alone does not show profitability. |
+| Revenue is volatile and both types move together, with year-end dips and shared peaks. | Plan production and stock around the seasonal cycle. Validate with at least two full years of monthly data. |
+| Hồ Chí Minh is the largest province, followed by Đà Nẵng, Hà Nội and Cần Thơ. Other provinces are small. | Prioritize Hồ Chí Minh and Đà Nẵng for deeper penetration. Check customer concentration and growth per province before adding spend. |
+| In Phụ kiện, Self-production revenue is about 2.2 times Import. | Pilot Phụ kiện in one weaker province and compare revenue per customer before scaling. |
+| Đăng Lâm leads Self-production revenue. Đăng Trà sells Import only. Tùng Dương has almost no Import. | Compare managers by product mix and customer portfolio before sharing best practices, since gaps may come from portfolio rather than skill. |
+| Import is the smaller channel (31%). | Use Import for category gaps and seasonal peaks. Compare Import share in peak and low months to confirm. |
 
-Hồ Chí Minh City is the largest contributor, with revenue exceeding 4.18M, far ahead of other provinces.
+## Tech Stack
 
-Suggests HCMC is the strategic hub for expansion.
+- Excel (Pivot Table, Pivot Chart, Slicer, Sparkline, Treemap)
 
-#### Product Category (Phụ kiện – Accessories):
+## Limitations
 
-Self-production revenue significantly outpaces imports, showing competitive advantage in this segment.
+- Revenue only, no cost or margin data
+- Dashboard values depend on active slicers
+- No customer-level behavior data
 
-#### Managerial Performance:
+## Repository Structure
 
-Managers Tùng Dương and Tiến Dũng outperform Đăng Lâm, highlighting differences in management effectiveness.
-
-## V Final Conclusion & Recommendations
-#### Strengthen self-production capacity: 
-Since it drives the majority of revenue and shows faster growth, continued investment in production facilities and innovation is key.
-
-#### Focus on Hồ Chí Minh City: 
-As the dominant market, strategies like deeper market penetration, customer loyalty programs, and premium product offerings could maximize returns.
-
-#### Expand successful product categories: 
-Accessories show strong performance in self-production; scaling this category to other regions may yield growth.
-
-#### Managerial optimization: 
-Share best practices from high-performing managers with others to balance performance across teams.
-
-#### Diversify imports strategically: 
-While imports are smaller, they can complement production by filling product gaps or seasonal demand.
+.
+├── README.md
+├── sales_performance_dashboard.xlsx
+├── data/
+│   └── sales_transactions.csv
+└── images/
+    └── dashboard.png
